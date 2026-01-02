@@ -1,0 +1,2900 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Game rank of chishaxie 2014 ~ 2025 （ing）</title>
+    <style>
+        * {margin:0; padding:0; box-sizing:border-box; font-family:Arial,sans-serif;}
+        body {background:#1a1a1a; color:#fff; display:flex; flex-direction:column; align-items:center;}
+        .page {width:1440px; padding:20px 0;}
+        h1 {text-align:center; margin-bottom:20px; color:#f0f0f0;}
+        .filter {margin-bottom:20px; display:flex; gap:10px; flex-wrap:wrap;}
+        .filter-btn {padding:8px 16px; background:#333; color:#fff; border:none; border-radius:4px; cursor:pointer; transition:0.3s;}
+        .filter-btn.active, .filter-btn:hover {background:#555;}
+        .rank-section {display:flex; margin-bottom:20px;}
+        .rank-label {width:80px; display:flex; justify-content:center; align-items:center; font-size:24px; font-weight:bold; color:#fff;}
+        .rank-S {background:#ff6b6b;}
+        .rank-Sminus {background:#ff9f43;}
+        .rank-A {background:#4ecdc4;}
+        .rank-B {background:#45b7d1;}
+        .rank-C {background:#96ceb4;}
+        .rank-D {background:#9c27b0;}
+        .games-container {flex:1; display:flex; flex-wrap:wrap; gap:10px; padding:10px; background:#2d2d2d; border-radius:0 8px 8px 0;}
+        .game-item {
+            width: calc((100% - 80px) / 9);
+            aspect-ratio: 1/1.4;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            cursor:pointer;
+            background:#3d3d3d;
+            border-radius:4px;
+            overflow:hidden;
+            transition:transform 0.3s;
+        }
+        .game-item:hover {transform:scale(1.05);}
+        .game-item img {max-width:100%; max-height:100%; object-fit:contain;}
+        
+        /* 弹窗样式 */
+        .modal {display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:1000; justify-content:center; align-items:center;}
+        .modal-content {
+            width: 1400px;
+            background:#2d2d2d;
+            border-radius:8px;
+            display:flex;
+            padding:30px;
+            gap:30px;
+        }
+        .modal-img {flex:1; display:flex; justify-content:center; align-items:center;}
+        .modal-img img {
+            max-width:100%;
+            max-height:600px;
+            border-radius:4px;
+        }
+        .modal-info {
+            flex:2;
+            font-size:22px;
+            line-height:1.8;
+        }
+        .modal-info h2 {
+            margin-bottom:20px;
+            color:#ff6b6b;
+            font-size:32px;
+        }
+        /* 核心：所有信息行（包括TGA成就）统一基础样式 */
+        .info-row {
+            margin-bottom:15px;
+            display: flex;
+            align-items: flex-start; /* 顶部对齐，统一排版 */
+        }
+        /* 所有标签统一样式，无差异 */
+        .info-label {
+            font-weight: bold;
+            color: #f0f0f0;
+            width: 180px; /* 固定宽度，确保所有标签对齐 */
+            flex-shrink: 0; /* 不收缩，避免宽度变化 */
+        }
+        /* 所有内容区域统一样式（包括TGA成就内容） */
+        .info-content {
+            flex: 1; /* 占剩余宽度，和标签对齐 */
+            word-wrap: break-word; /* 超长文本自动换行，统一布局 */
+        }
+        /* 核心体验保留换行功能，同时继承flex布局，确保排版一致 */
+        .core-experience {
+            white-space: pre-line;
+            flex: 1;
+            word-wrap: break-word;
+        }
+        /* TGA成就行：仅控制隐藏/显示，不添加额外样式，继承.info-row全部样式 */
+        #modal-tga {
+            /* 仅保留隐藏逻辑，无其他自定义样式，避免排版差异 */
+        }
+        .close-btn {
+            position:absolute;
+            top:30px; right:40px;
+            font-size:40px;
+            color:#fff;
+            cursor:pointer;
+            transition:color 0.3s;
+        }
+        .close-btn:hover {color:#ff6b6b;}
+    </style>
+</head>
+<body>
+    <div class="page">
+        <h1>Game rank of chishaxie 2014 ~ 2025 （ing）</h1>
+        <div class="filter">
+<button class="filter-btn active" data-category="全部">全部</button><button class="filter-btn " data-category="动作冒险">动作冒险</button><button class="filter-btn " data-category="动作">动作</button><button class="filter-btn " data-category="双人合作">双人合作</button><button class="filter-btn " data-category="魂系">魂系</button><button class="filter-btn " data-category="ARPG">ARPG</button><button class="filter-btn " data-category="JRPG">JRPG</button><button class="filter-btn " data-category="CRPG">CRPG</button><button class="filter-btn " data-category="开放世界ARPG">开放世界ARPG</button><button class="filter-btn " data-category="开放世界">开放世界</button><button class="filter-btn " data-category="互动叙事">互动叙事</button><button class="filter-btn " data-category="解密">解密</button><button class="filter-btn " data-category="策略">策略</button><button class="filter-btn " data-category="悬疑推理">悬疑推理</button><button class="filter-btn " data-category="赛车">赛车</button><button class="filter-btn " data-category="FPS">FPS</button><button class="filter-btn " data-category="其他">其他</button>
+        </div>
+
+    <div class="rank-section">
+        <div class="rank-label rank-S">S</div>
+        <div class="games-container">
+        <div class="game-item"
+             data-chinese="艾尔登法环"
+             data-english="Elden Ring"
+             data-platform="PC"
+             data-developer="From Software"
+             data-year="2022"
+             data-category="魂系"
+             data-category-b=""
+             data-tga="2022年度游戏"
+             data-playtime="长"
+             data-rank="S"
+             data-mc="94"
+             data-core="魂系硬核挑战与自由开放世界完美融合，内容量极其丰富！"
+             data-disadv="">
+            <img src="imgs/006.jpg" alt="艾尔登法环">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="博德之门3"
+             data-english="Baldur&#39;s Gate 3"
+             data-platform="PC"
+             data-developer="Larian Studios"
+             data-year="2023"
+             data-category="CRPG"
+             data-category-b=""
+             data-tga="2023年度游戏"
+             data-playtime="长"
+             data-rank="S"
+             data-mc="96"
+             data-core="剑与魔法的高魔世界，超高自由度贯穿全程，每段冒险都独一无二
+现代化 CRPG 巅峰，基于 D&amp;D 5E 规则，打造无可替代的沉浸冒险
+任务多解法、选择即命运，从背叛到救赎皆由你定"
+             data-disadv="">
+            <img src="imgs/091.jpg" alt="博德之门3">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="塞尔达传说：旷野之息"
+             data-english="The Legend of Zelda: Breath of the Wild"
+             data-platform="Switch"
+             data-developer="任天堂"
+             data-year="2017"
+             data-category="动作冒险"
+             data-category-b="3D塞尔达"
+             data-tga="2017年度游戏"
+             data-playtime="长"
+             data-rank="S"
+             data-mc="97"
+             data-core="开放世界游戏的天花板，物理引擎与逻辑谜题的巧妙结合"
+             data-disadv="">
+            <img src="imgs/085.jpg" alt="塞尔达传说：旷野之息">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="只狼：影逝二度"
+             data-english="SEKIRO: Shadows Die Twice"
+             data-platform="PC"
+             data-developer="From Software"
+             data-year="2019"
+             data-category="魂系"
+             data-category-b=""
+             data-tga="2019年度游戏"
+             data-playtime="中"
+             data-rank="S"
+             data-mc="92"
+             data-core="日本忍者武士背景，鼓励对抗(进攻拼刀)的魂游，“犹豫，就会败北”"
+             data-disadv="">
+            <img src="imgs/007.jpg" alt="只狼：影逝二度">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="巫师3：狂猎"
+             data-english="The Witcher 3: Wild Hunt"
+             data-platform="PC"
+             data-developer="CD Projekt RED"
+             data-year="2015"
+             data-category="开放世界ARPG"
+             data-category-b=""
+             data-tga="2015年度游戏"
+             data-playtime="长"
+             data-rank="S"
+             data-mc="93"
+             data-core="化身猎魔人杰洛特，在黑暗奇幻开放世界中踏上寻女之旅。两难抉择，DLC都能打下最佳角色扮演游戏"
+             data-disadv="">
+            <img src="imgs/043.jpg" alt="巫师3：狂猎">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="超级马里奥：奥德赛"
+             data-english="Super Mario Odyssey"
+             data-platform="Switch"
+             data-developer="任天堂"
+             data-year="2017"
+             data-category="动作冒险"
+             data-category-b="3D平台"
+             data-tga=""
+             data-playtime="中"
+             data-rank="S"
+             data-mc="97"
+             data-core="一顶神奇帽子（附身）重塑 3D 平台冒险巅峰，十余个风格迥异的王国+藏满惊喜的箱庭世界"
+             data-disadv="">
+            <img src="imgs/147.jpg" alt="超级马里奥：奥德赛">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="侠盗猎车手5"
+             data-english="Grand Theft Auto V"
+             data-platform="PC"
+             data-developer="Rockstar Games"
+             data-year="2013"
+             data-category="开放世界"
+             data-category-b=""
+             data-tga="2013年度游戏"
+             data-playtime="中"
+             data-rank="S"
+             data-mc="97"
+             data-core="现代都市开放世界的巅峰，在多线叙事中体验三个主角的命运交织"
+             data-disadv="">
+            <img src="imgs/163.jpg" alt="侠盗猎车手5">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="见证者"
+             data-english="The Witness"
+             data-platform="PC"
+             data-developer="Jonathan Blow"
+             data-year="2016"
+             data-category="解密"
+             data-category-b=""
+             data-tga=""
+             data-playtime="中"
+             data-rank="S"
+             data-mc="87"
+             data-core="一笔画的巅峰之作，把一个小品类做到极限，在孤独中观察、思考、探索、顿悟，享受纯粹的乐趣
+作者的前作是《Braid | 时空幻境》，一个关于时间的神作"
+             data-disadv="">
+            <img src="imgs/122.jpg" alt="见证者">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="健身环大冒险"
+             data-english="Ring Fit Adventure"
+             data-platform="Switch"
+             data-developer="任天堂"
+             data-year="2019"
+             data-category="其他"
+             data-category-b="健身"
+             data-tga=""
+             data-playtime="长"
+             data-rank="S"
+             data-mc="-"
+             data-core="真人健身 RPG，真的能驱动锻炼，让重复的锻炼动作不那么无聊"
+             data-disadv="">
+            <img src="imgs/166.jpg" alt="健身环大冒险">
+        </div>
+        </div>
+    </div>
+    
+    <div class="rank-section">
+        <div class="rank-label rank-Sminus">S-</div>
+        <div class="games-container">
+        <div class="game-item"
+             data-chinese="塞尔达传说：王国之泪"
+             data-english="The Legend of Zelda: Tears of the Kingdom"
+             data-platform="Switch"
+             data-developer="任天堂"
+             data-year="2023"
+             data-category="动作冒险"
+             data-category-b="3D塞尔达"
+             data-tga="2023最佳动作冒险游戏"
+             data-playtime="长"
+             data-rank="S-"
+             data-mc="96"
+             data-core="在开放世界游戏的天花板上+1创意，将物理引擎与自由创造深度融合"
+             data-disadv="地下世界是镜像，大而空">
+            <img src="imgs/086.jpg" alt="塞尔达传说：王国之泪">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="上古卷轴V：天际"
+             data-english="The Elder Scrolls V: Skyrim"
+             data-platform="PC"
+             data-developer="Bethesda Softworks"
+             data-year="2011"
+             data-category="CRPG"
+             data-category-b=""
+             data-tga="2011年度游戏"
+             data-playtime="长"
+             data-rank="S-"
+             data-mc="96"
+             data-core="现代眼光评分，画了老滚6的饼（仅PPT？），但一直不出扣分
+开放世界优秀作品的起点，经典开局（囚犯），你和角色的认知是一致的"
+             data-disadv="">
+            <img src="imgs/097.jpg" alt="上古卷轴V：天际">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="光与影：33号远征队"
+             data-english="Clair Obscur：Expedition 33"
+             data-platform="PC"
+             data-developer="Sandfall Interactive"
+             data-year="2025"
+             data-category="JRPG"
+             data-category-b=""
+             data-tga="2025年度游戏"
+             data-playtime="中"
+             data-rank="S-"
+             data-mc="93"
+             data-core="震撼开局、法式艺术、哲学思考，带格挡、闪避的回合制"
+             data-disadv="">
+            <img src="imgs/015.jpg" alt="光与影：33号远征队">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="心灵杀手2"
+             data-english="Alan Wake Ⅱ"
+             data-platform="PC"
+             data-developer="Remedy Entertainment"
+             data-year="2023"
+             data-category="动作冒险"
+             data-category-b=""
+             data-tga=""
+             data-playtime="中"
+             data-rank="S-"
+             data-mc="96"
+             data-core="独特；氛围（恐怖悬疑）、画面、艺术性叙事；FBI警探、作家双线"
+             data-disadv="">
+            <img src="imgs/071.jpg" alt="心灵杀手2">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="黑神话：悟空"
+             data-english="Black Myth: Wukong"
+             data-platform="PC"
+             data-developer="游戏科学"
+             data-year="2024"
+             data-category="动作"
+             data-category-b=""
+             data-tga="2024最佳动作游戏"
+             data-playtime="中"
+             data-rank="S-"
+             data-mc="82"
+             data-core="国产 3A 动作里程碑，暗黑向剧情解构经典，BOSS Rush + 悟空梦"
+             data-disadv="最后一章质量显著下降">
+            <img src="imgs/089.jpg" alt="黑神话：悟空">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="最后生还者重制版"
+             data-english="The Last of Us™ Part I"
+             data-platform="PC"
+             data-developer="顽皮狗"
+             data-year="2023"
+             data-category="动作冒险"
+             data-category-b=""
+             data-tga=""
+             data-playtime="中"
+             data-rank="S-"
+             data-mc="95"
+             data-core="3A 末日丧尸史诗，氛围+剧情+人设，乔尔与艾莉的救赎羁绊搭配封神叙事，fuck the world"
+             data-disadv="">
+            <img src="imgs/067.jpg" alt="最后生还者重制版">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="巴巴是你"
+             data-english="Baba Is You"
+             data-platform="PC"
+             data-developer="Hempuli Oy"
+             data-year="2019"
+             data-category="解密"
+             data-category-b=""
+             data-tga=""
+             data-playtime="中"
+             data-rank="S-"
+             data-mc="87"
+             data-core="考验逻辑的巅峰之作，高难度预警，推箱子、语言逻辑、脑洞"
+             data-disadv="">
+            <img src="imgs/115.jpg" alt="巴巴是你">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="杀戮尖塔"
+             data-english="Slay the Spire"
+             data-platform="iPad"
+             data-developer="Mega Crit Games"
+             data-year="2020"
+             data-category="策略"
+             data-category-b="肉鸽+卡牌"
+             data-tga=""
+             data-playtime="中"
+             data-rank="S-"
+             data-mc="89"
+             data-core="肉鸽卡牌的巅峰之作，高可玩性+高策略性"
+             data-disadv="">
+            <img src="imgs/106.jpg" alt="杀戮尖塔">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="奇异人生"
+             data-english="Life is Strange"
+             data-platform="PC"
+             data-developer="Dontnod Entertainment"
+             data-year="2015"
+             data-category="互动叙事"
+             data-category-b=""
+             data-tga=""
+             data-playtime="短"
+             data-rank="S-"
+             data-mc="85"
+             data-core="最喜欢的女主角，时间回溯+美式校园青春+悬疑案件，感受成长、救赎与人性
+需自定义角色名字的时候都是用的女主的 Max"
+             data-disadv="">
+            <img src="imgs/175.jpg" alt="奇异人生">
+        </div>
+        </div>
+    </div>
+    
+    <div class="rank-section">
+        <div class="rank-label rank-A">A</div>
+        <div class="games-container">
+        <div class="game-item"
+             data-chinese="明末：渊虚之羽"
+             data-english="WUCHANG: Fallen Feathers"
+             data-platform="PC"
+             data-developer="灵泽科技/505 Games"
+             data-year="2025"
+             data-category="魂系"
+             data-category-b=""
+             data-tga=""
+             data-playtime="中"
+             data-rank="A"
+             data-mc="72"
+             data-core="国风魂游，古蜀文明与克苏鲁元素交织"
+             data-disadv="">
+            <img src="imgs/004.jpg" alt="明末：渊虚之羽">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="黑暗之魂3"
+             data-english="Dark Souls III"
+             data-platform="PC"
+             data-developer="From Software"
+             data-year="2016"
+             data-category="魂系"
+             data-category-b=""
+             data-tga=""
+             data-playtime="中"
+             data-rank="A"
+             data-mc="88"
+             data-core="经典魂游(现代友好)，传火终局"
+             data-disadv="">
+            <img src="imgs/008.jpg" alt="黑暗之魂3">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="女神异闻录5 皇家版"
+             data-english="Persona 5 Royal"
+             data-platform="Switch"
+             data-developer="P-Studio"
+             data-year="2017"
+             data-category="JRPG"
+             data-category-b=""
+             data-tga="2017最佳角色扮演游戏"
+             data-playtime="长"
+             data-rank="A"
+             data-mc="93"
+             data-core="拯救世界的日本高中生，化身怪盗偷取人心"
+             data-disadv="">
+            <img src="imgs/016.jpg" alt="女神异闻录5 皇家版">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="异度之刃2"
+             data-english="Xenoblade Chronicles 2"
+             data-platform="Switch"
+             data-developer="任天堂"
+             data-year="2017"
+             data-category="JRPG"
+             data-category-b=""
+             data-tga=""
+             data-playtime="长"
+             data-rank="A"
+             data-mc="83"
+             data-core="人设精美，在巨物上冒险，半即时战斗 + 抽卡养成"
+             data-disadv="画面比较糊">
+            <img src="imgs/022.jpg" alt="异度之刃2">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="勇者斗恶龙11"
+             data-english="DRAGON QUEST XI"
+             data-platform="PC"
+             data-developer="Square Enix"
+             data-year="2017"
+             data-category="JRPG"
+             data-category-b=""
+             data-tga=""
+             data-playtime="中"
+             data-rank="A"
+             data-mc="85"
+             data-core="经典王道RPG"
+             data-disadv="">
+            <img src="imgs/029.jpg" alt="勇者斗恶龙11">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="时空之轮"
+             data-english="Chrono Trigger"
+             data-platform="iPad"
+             data-developer="SQUARE"
+             data-year="1995"
+             data-category="JRPG"
+             data-category-b=""
+             data-tga=""
+             data-playtime="中"
+             data-rank="A"
+             data-mc="95"
+             data-core="现代眼光评分，绝对是那个时代的经典，跨越时空的冒险史诗
+三合一：堀井雄二(DQ)、鸟山明、坂口博信(FF)"
+             data-disadv="">
+            <img src="imgs/030.jpg" alt="时空之轮">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="侠客风云传"
+             data-english="Tale of Wuxia"
+             data-platform="PC"
+             data-developer="河洛工作室"
+             data-year="2015"
+             data-category="CRPG"
+             data-category-b="国产RPG"
+             data-tga=""
+             data-playtime="中"
+             data-rank="A"
+             data-mc="-"
+             data-core="不属于JRPG，勉强算CRPG，经典武林群侠传的复刻，战棋+模拟经营"
+             data-disadv="">
+            <img src="imgs/035.jpg" alt="侠客风云传">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="天国：拯救2"
+             data-english="Kingdom Come: Deliverance II"
+             data-platform="PC"
+             data-developer="Warhorse(战马)工作室"
+             data-year="2025"
+             data-category="开放世界ARPG"
+             data-category-b=""
+             data-tga=""
+             data-playtime="中"
+             data-rank="A"
+             data-mc="88"
+             data-core="中世纪模拟器，写实，小人物下的波西米亚战争"
+             data-disadv="">
+            <img src="imgs/037.jpg" alt="天国：拯救2">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="对马岛之魂"
+             data-english="Ghost of Tsushima"
+             data-platform="PC"
+             data-developer="Sucker Punch"
+             data-year="2020"
+             data-category="开放世界ARPG"
+             data-category-b=""
+             data-tga=""
+             data-playtime="中"
+             data-rank="A"
+             data-mc="84"
+             data-core="日本武士，氛围、风景、战斗"
+             data-disadv="">
+            <img src="imgs/039.jpg" alt="对马岛之魂">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="极限竞速：地平线5"
+             data-english="Forza Horizon 5"
+             data-platform="PC"
+             data-developer="Playground Games"
+             data-year="2021"
+             data-category="赛车"
+             data-category-b=""
+             data-tga=""
+             data-playtime="中"
+             data-rank="A"
+             data-mc="91"
+             data-core="偏写实开放世界赛车，墨西哥"
+             data-disadv="">
+            <img src="imgs/051.jpg" alt="极限竞速：地平线5">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="极限竞速：地平线4"
+             data-english="Forza Horizon 4"
+             data-platform="PC"
+             data-developer="Playground Games"
+             data-year="2018"
+             data-category="赛车"
+             data-category-b=""
+             data-tga=""
+             data-playtime="中"
+             data-rank="A"
+             data-mc="89"
+             data-core="偏写实开放世界赛车，伦敦与四季"
+             data-disadv="">
+            <img src="imgs/052.jpg" alt="极限竞速：地平线4">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="底特律：化身为人"
+             data-english="Detroit: Become Human"
+             data-platform="PC"
+             data-developer="Quantic Dream"
+             data-year="2020"
+             data-category="互动叙事"
+             data-category-b="互动影游"
+             data-tga=""
+             data-playtime="中"
+             data-rank="A"
+             data-mc="78"
+             data-core="科幻未来，奴役、种族歧视、宗教"
+             data-disadv="">
+            <img src="imgs/057.jpg" alt="底特律：化身为人">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="双影奇境"
+             data-english="Split Fiction"
+             data-platform="PC"
+             data-developer="Hazelight Studios"
+             data-year="2025"
+             data-category="双人合作"
+             data-category-b=""
+             data-tga=""
+             data-playtime="短"
+             data-rank="A"
+             data-mc="90"
+             data-core="双人游戏的Top，炫技偏多，魔法与科幻双世界"
+             data-disadv="">
+            <img src="imgs/060.jpg" alt="双影奇境">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="路易吉洋馆3"
+             data-english="Luigi&#39;s Mansion 3"
+             data-platform="Switch"
+             data-developer="任天堂"
+             data-year="2019"
+             data-category="双人合作"
+             data-category-b=""
+             data-tga=""
+             data-playtime="短"
+             data-rank="A"
+             data-mc="86"
+             data-core="合作解密探索，捉鬼敢死队"
+             data-disadv="">
+            <img src="imgs/064.jpg" alt="路易吉洋馆3">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="生化危机4重制版"
+             data-english="Resident Evil 4"
+             data-platform="PC"
+             data-developer="CAPCOM"
+             data-year="2023"
+             data-category="动作冒险"
+             data-category-b=""
+             data-tga=""
+             data-playtime="中"
+             data-rank="A"
+             data-mc="92"
+             data-core="第三人称，里昂救&quot;碍事梨&quot;"
+             data-disadv="">
+            <img src="imgs/068.jpg" alt="生化危机4重制版">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="战神(4)"
+             data-english="God Of War"
+             data-platform="PC"
+             data-developer="圣莫尼卡"
+             data-year="2022"
+             data-category="ARPG"
+             data-category-b=""
+             data-tga="2018年度游戏"
+             data-playtime="中"
+             data-rank="A"
+             data-mc="93"
+             data-core="传统硬核ACT变成了ARPG，路走宽了；一镜到底，战神和他的老父亲"
+             data-disadv="">
+            <img src="imgs/079.jpg" alt="战神(4)">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="塞尔达传说：智慧的再现"
+             data-english="The Legend of Zelda: Echoes of Wisdom"
+             data-platform="Switch"
+             data-developer="任天堂"
+             data-year="2024"
+             data-category="动作冒险"
+             data-category-b="2D塞尔达"
+             data-tga=""
+             data-playtime="中"
+             data-rank="A"
+             data-mc="86"
+             data-core="真宝可梦、2D旷野之息"
+             data-disadv="">
+            <img src="imgs/084.jpg" alt="塞尔达传说：智慧的再现">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="塞尔达传说：织梦岛"
+             data-english="The Legend of Zelda: Link&#39;s Awakening"
+             data-platform="Switch"
+             data-developer="任天堂"
+             data-year="2019"
+             data-category="动作冒险"
+             data-category-b="2D塞尔达"
+             data-tga=""
+             data-playtime="中"
+             data-rank="A"
+             data-mc="87"
+             data-core="经典的 2D 传统塞尔达"
+             data-disadv="">
+            <img src="imgs/087.jpg" alt="塞尔达传说：织梦岛">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="神界：原罪2"
+             data-english="Divinity: Original Sin 2"
+             data-platform="PC"
+             data-developer="Larian Studios"
+             data-year="2017"
+             data-category="CRPG"
+             data-category-b=""
+             data-tga=""
+             data-playtime="长"
+             data-rank="A"
+             data-mc="93"
+             data-core=""
+             data-disadv="">
+            <img src="imgs/092.jpg" alt="神界：原罪2">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="十三机兵防卫圈"
+             data-english="13 Sentinels: Aegis Rim"
+             data-platform="Switch"
+             data-developer="Vanillaware(香草社)"
+             data-year="2019"
+             data-category="互动叙事"
+             data-category-b="视觉小说"
+             data-tga=""
+             data-playtime="中"
+             data-rank="A"
+             data-mc="86"
+             data-core="剧情猜测与反转，你以为你懂了，实际你没懂"
+             data-disadv="">
+            <img src="imgs/102.jpg" alt="十三机兵防卫圈">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="黑帝斯"
+             data-english="Hades"
+             data-platform="Switch"
+             data-developer="Supergiant Games"
+             data-year="2020"
+             data-category="动作"
+             data-category-b="肉鸽"
+             data-tga="2020最佳动作游戏"
+             data-playtime="中"
+             data-rank="A"
+             data-mc="93"
+             data-core=""
+             data-disadv="">
+            <img src="imgs/107.jpg" alt="黑帝斯">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="皮克敏4"
+             data-english="Pikmin 4"
+             data-platform="Switch"
+             data-developer="任天堂"
+             data-year="2023"
+             data-category="策略"
+             data-category-b="即时策略"
+             data-tga=""
+             data-playtime="中"
+             data-rank="A"
+             data-mc="88"
+             data-core="迷你的即时战略，小时候的蚂蚁大军"
+             data-disadv="">
+            <img src="imgs/109.jpg" alt="皮克敏4">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="传送门"
+             data-english="Portal"
+             data-platform="PC"
+             data-developer="Valve Software"
+             data-year="2007"
+             data-category="解密"
+             data-category-b=""
+             data-tga=""
+             data-playtime="短"
+             data-rank="A"
+             data-mc="90"
+             data-core="短小精悍；Steam的入坑之作，经常打折3元人民币"
+             data-disadv="">
+            <img src="imgs/119.jpg" alt="传送门">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="传送门2"
+             data-english="Portal 2"
+             data-platform="PC"
+             data-developer="Valve Software"
+             data-year="2011"
+             data-category="解密"
+             data-category-b=""
+             data-tga=""
+             data-playtime="短"
+             data-rank="A"
+             data-mc="95"
+             data-core="短小精悍；Steam的入坑之作，经常打折3元人民币"
+             data-disadv="">
+            <img src="imgs/120.jpg" alt="传送门2">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="囚禁"
+             data-english="Inside"
+             data-platform="PC"
+             data-developer="Playdead Studios"
+             data-year="2016"
+             data-category="解密"
+             data-category-b=""
+             data-tga="2016最佳独立游戏"
+             data-playtime="短"
+             data-rank="A"
+             data-mc="93"
+             data-core="地狱边境LIMBO的续作，在黑暗反乌托邦世界逃亡"
+             data-disadv="">
+            <img src="imgs/121.jpg" alt="囚禁">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="神秘海域4：盗贼末路"
+             data-english="Uncharted 4：A thief&#39;s end"
+             data-platform="PC"
+             data-developer="顽皮狗"
+             data-year="2022"
+             data-category="动作冒险"
+             data-category-b="动作解密探险"
+             data-tga=""
+             data-playtime="中"
+             data-rank="A"
+             data-mc="92"
+             data-core="电影般丝滑体验(无loading)，德雷克走哪塌哪的传奇谢幕"
+             data-disadv="">
+            <img src="imgs/125.jpg" alt="神秘海域4：盗贼末路">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="耻辱2"
+             data-english="Dishonored 2"
+             data-platform="PC"
+             data-developer="Arkane Studios"
+             data-year="2016"
+             data-category="动作冒险"
+             data-category-b="潜行动作冒险"
+             data-tga="2016最佳动作冒险游戏"
+             data-playtime="中"
+             data-rank="A"
+             data-mc="86"
+             data-core="蒸汽朋克世界的潜行暗杀"
+             data-disadv="">
+            <img src="imgs/132.jpg" alt="耻辱2">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="超级马里奥3D世界+狂怒世界"
+             data-english="Super Mario 3D World + Bowser&#39;s Fury"
+             data-platform="Switch"
+             data-developer="任天堂"
+             data-year="2021"
+             data-category="动作冒险"
+             data-category-b="3D平台"
+             data-tga=""
+             data-playtime="短"
+             data-rank="A"
+             data-mc="90"
+             data-core=""
+             data-disadv="">
+            <img src="imgs/146.jpg" alt="超级马里奥3D世界+狂怒世界">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="赤痕(血污)：夜之仪式"
+             data-english="Bloodstained: Ritual of the Night"
+             data-platform="PC"
+             data-developer="Artplay"
+             data-year="2019"
+             data-category="动作"
+             data-category-b="银河恶魔城"
+             data-tga=""
+             data-playtime="中"
+             data-rank="A"
+             data-mc="83"
+             data-core="正统恶魔城的现代化作品"
+             data-disadv="">
+            <img src="imgs/153.jpg" alt="赤痕(血污)：夜之仪式">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="杀手™ 暗杀世界三部曲"
+             data-english="HITMAN™ 1~3"
+             data-platform="PC"
+             data-developer="IO Interactive"
+             data-year="2021"
+             data-category="动作"
+             data-category-b="战术潜行"
+             data-tga=""
+             data-playtime="中"
+             data-rank="A"
+             data-mc="88"
+             data-core="沙盒玩法 + 伪装系统 + 创意击杀"
+             data-disadv="">
+            <img src="imgs/158.jpg" alt="杀手™ 暗杀世界三部曲">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="死亡搁浅"
+             data-english="Death Stranding"
+             data-platform="PC"
+             data-developer="Kojima Productions"
+             data-year="2019"
+             data-category="开放世界"
+             data-category-b=""
+             data-tga=""
+             data-playtime="中"
+             data-rank="A"
+             data-mc="85"
+             data-core="末日美国的孤独送货模拟器"
+             data-disadv="">
+            <img src="imgs/160.jpg" alt="死亡搁浅">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="合金装备V：幻痛"
+             data-english="Metal Gear Solid V: The Phantom Pain"
+             data-platform="PC"
+             data-developer="KONAMI"
+             data-year="2015"
+             data-category="开放世界"
+             data-category-b=""
+             data-tga="2015最佳动作游戏"
+             data-playtime="中"
+             data-rank="A"
+             data-mc="91"
+             data-core=""
+             data-disadv="有些烂尾">
+            <img src="imgs/161.jpg" alt="合金装备V：幻痛">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="荒野大镖客：救赎2"
+             data-english="Red Dead Redemption 2"
+             data-platform="PC"
+             data-developer="Rockstar Games"
+             data-year="2019"
+             data-category="开放世界"
+             data-category-b=""
+             data-tga=""
+             data-playtime="中"
+             data-rank="A"
+             data-mc="97"
+             data-core="范德林德帮的末日悲歌，亚瑟・摩根在西部荒野的救赎之旅"
+             data-disadv="">
+            <img src="imgs/162.jpg" alt="荒野大镖客：救赎2">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="看门狗"
+             data-english="Watch Dogs"
+             data-platform="PC"
+             data-developer="Ubisoft"
+             data-year="2014"
+             data-category="开放世界"
+             data-category-b=""
+             data-tga=""
+             data-playtime="中"
+             data-rank="A"
+             data-mc="76"
+             data-core="黑客版的轻量级GTA"
+             data-disadv="">
+            <img src="imgs/165b.jpg" alt="看门狗">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="刺客信条：起源"
+             data-english="Assassin&#39;s Creed Origins"
+             data-platform="PC"
+             data-developer="Ubisoft"
+             data-year="2017"
+             data-category="开放世界ARPG"
+             data-category-b=""
+             data-tga=""
+             data-playtime="中"
+             data-rank="A"
+             data-mc="81"
+             data-core="刺客信条 ARPG 化"
+             data-disadv="">
+            <img src="imgs/170.jpg" alt="刺客信条：起源">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="艾迪芬奇的记忆"
+             data-english="What Remains of Edith Finch"
+             data-platform="PC"
+             data-developer="Giant Sparrow"
+             data-year="2017"
+             data-category="互动叙事"
+             data-category-b=""
+             data-tga=""
+             data-playtime="短"
+             data-rank="A"
+             data-mc="89"
+             data-core="芬奇家族的死亡寓言，迷你版百年孤独"
+             data-disadv="">
+            <img src="imgs/179.jpg" alt="艾迪芬奇的记忆">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="围攻"
+             data-english="Besiege"
+             data-platform="PC"
+             data-developer="Spiderling"
+             data-year="2015"
+             data-category="其他"
+             data-category-b="沙盒"
+             data-tga=""
+             data-playtime="中"
+             data-rank="A"
+             data-mc="-"
+             data-core="表层：中世纪攻城砸城堡的物理建造游戏
+里层：现代工程学，飞机、导弹一应俱全"
+             data-disadv="">
+            <img src="imgs/182.jpg" alt="围攻">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="饥荒"
+             data-english="Don&#39;t Starve"
+             data-platform="PC"
+             data-developer="Klei Entertainment"
+             data-year="2013"
+             data-category="策略"
+             data-category-b="生存"
+             data-tga=""
+             data-playtime="中"
+             data-rank="A"
+             data-mc="79"
+             data-core="高难度生存"
+             data-disadv="">
+            <img src="imgs/188.jpg" alt="饥荒">
+        </div>
+        </div>
+    </div>
+    
+    <div class="rank-section">
+        <div class="rank-label rank-B">B</div>
+        <div class="games-container">
+        <div class="game-item"
+             data-chinese="忍者龙剑传4"
+             data-english="NINJA GAIDEN 4"
+             data-platform="PC"
+             data-developer="Team NINJA"
+             data-year="2025"
+             data-category="动作"
+             data-category-b=""
+             data-tga=""
+             data-playtime="短"
+             data-rank="B"
+             data-mc="83"
+             data-core="传统硬核ACT(鬼泣、战神、忍龙、猎天使魔女)之一，现代忍者、高速ACT、爽快感"
+             data-disadv="">
+            <img src="imgs/001.jpg" alt="忍者龙剑传4">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="无限机兵"
+             data-english="AI LIMIT"
+             data-platform="PC"
+             data-developer="成都神织科技"
+             data-year="2025"
+             data-category="魂系"
+             data-category-b=""
+             data-tga=""
+             data-playtime="中"
+             data-rank="B"
+             data-mc="72"
+             data-core="国产二次元魂游，同步率设计让强者更强，弱者更弱"
+             data-disadv="">
+            <img src="imgs/005.jpg" alt="无限机兵">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="黑暗之魂：重制版"
+             data-english="Dark Souls Remastered"
+             data-platform="Switch"
+             data-developer="From Software"
+             data-year="2018"
+             data-category="魂系"
+             data-category-b=""
+             data-tga=""
+             data-playtime="中"
+             data-rank="B"
+             data-mc="87"
+             data-core="经典魂游"
+             data-disadv="">
+            <img src="imgs/009.jpg" alt="黑暗之魂：重制版">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="匹诺曹的谎言"
+             data-english="Lies Of P"
+             data-platform="PC"
+             data-developer="NEOWIZ"
+             data-year="2023"
+             data-category="魂系"
+             data-category-b=""
+             data-tga=""
+             data-playtime="中"
+             data-rank="B"
+             data-mc="82"
+             data-core="蒸汽朋克维多利亚风格魂游，《木偶奇遇记》童话暗黑化"
+             data-disadv="">
+            <img src="imgs/010.jpg" alt="匹诺曹的谎言">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="盐和避难所"
+             data-english="Salt and Sanctuary"
+             data-platform="PC"
+             data-developer="Ska Studios"
+             data-year="2016"
+             data-category="魂系"
+             data-category-b="魂系+银河恶魔城"
+             data-tga=""
+             data-playtime="中"
+             data-rank="B"
+             data-mc="84"
+             data-core="2D横版魂游（银河恶魔城地图风格）"
+             data-disadv="">
+            <img src="imgs/011.jpg" alt="盐和避难所">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="英雄传说：黎之轨迹"
+             data-english="The Legend of Heroes: Kuro no Kiseki"
+             data-platform="PC"
+             data-developer="Falcom"
+             data-year="2021"
+             data-category="JRPG"
+             data-category-b=""
+             data-tga=""
+             data-playtime="中"
+             data-rank="B"
+             data-mc="88"
+             data-core="轨迹系列后期共和国篇1（赶紧结束，想看大结局）"
+             data-disadv="">
+            <img src="imgs/018.jpg" alt="英雄传说：黎之轨迹">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="破晓传说"
+             data-english="Tales of Arise"
+             data-platform="PC"
+             data-developer="Bandai Namco Studios"
+             data-year="2021"
+             data-category="JRPG"
+             data-category-b=""
+             data-tga="2021最佳角色扮演游戏"
+             data-playtime="中"
+             data-rank="B"
+             data-mc="87"
+             data-core="人设讨喜，剧情王道但中二"
+             data-disadv="">
+            <img src="imgs/020.jpg" alt="破晓传说">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="异度之刃：决定版"
+             data-english="Xenoblade Chronicles: Definitive Edition"
+             data-platform="Switch"
+             data-developer="任天堂"
+             data-year="2020"
+             data-category="JRPG"
+             data-category-b=""
+             data-tga=""
+             data-playtime="中"
+             data-rank="B"
+             data-mc="89"
+             data-core="在巨物上冒险"
+             data-disadv="">
+            <img src="imgs/021.jpg" alt="异度之刃：决定版">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="最终幻想16"
+             data-english="Final Fantasy XVI"
+             data-platform="PC"
+             data-developer="Square Enix"
+             data-year="2023"
+             data-category="JRPG"
+             data-category-b=""
+             data-tga=""
+             data-playtime="中"
+             data-rank="B"
+             data-mc="88"
+             data-core="开局像权游，后期如智障，只在期待召唤兽大战"
+             data-disadv="">
+            <img src="imgs/025.jpg" alt="最终幻想16">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="最终幻想13"
+             data-english="Final Fantasy XIII"
+             data-platform="PC"
+             data-developer="Square Enix"
+             data-year="2009"
+             data-category="JRPG"
+             data-category-b=""
+             data-tga=""
+             data-playtime="中"
+             data-rank="B"
+             data-mc="82"
+             data-core="酷飒的雷霆姐"
+             data-disadv="">
+            <img src="imgs/028.jpg" alt="最终幻想13">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="天国：拯救"
+             data-english="Kingdom Come: Deliverance"
+             data-platform="PC"
+             data-developer="Warhorse(战马)工作室"
+             data-year="2018"
+             data-category="开放世界ARPG"
+             data-category-b=""
+             data-tga=""
+             data-playtime="中"
+             data-rank="B"
+             data-mc="81"
+             data-core="同上"
+             data-disadv="">
+            <img src="imgs/038.jpg" alt="天国：拯救">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="地平线：西之绝境"
+             data-english="Horizon Forbidden West"
+             data-platform="PC"
+             data-developer="Guerrilla Games/索尼"
+             data-year="2022"
+             data-category="开放世界ARPG"
+             data-category-b=""
+             data-tga=""
+             data-playtime="中"
+             data-rank="B"
+             data-mc="89"
+             data-core="未来机械+原始社会，角色太丑了"
+             data-disadv="">
+            <img src="imgs/040.jpg" alt="地平线：西之绝境">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="霍格沃茨之遗"
+             data-english="Hogwarts Legacy"
+             data-platform="PC"
+             data-developer="Avalanche Software"
+             data-year="2023"
+             data-category="开放世界ARPG"
+             data-category-b=""
+             data-tga=""
+             data-playtime="中"
+             data-rank="B"
+             data-mc="84"
+             data-core="哈利波特世界模拟器"
+             data-disadv="">
+            <img src="imgs/041.jpg" alt="霍格沃茨之遗">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="巫师2：国王刺客"
+             data-english="The Witcher 2: Assassins Of Kings"
+             data-platform="PC"
+             data-developer="CD Projekt RED"
+             data-year="2011"
+             data-category="开放世界ARPG"
+             data-category-b="ARPG"
+             data-tga=""
+             data-playtime="中"
+             data-rank="B"
+             data-mc="88"
+             data-core="同上"
+             data-disadv="">
+            <img src="imgs/044.jpg" alt="巫师2：国王刺客">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="巫师之昆特牌：王权的陨落"
+             data-english="Thronebreaker: The Witcher Tales"
+             data-platform="PC"
+             data-developer="CD Projekt RED"
+             data-year="2018"
+             data-category="开放世界ARPG"
+             data-category-b="卡牌"
+             data-tga=""
+             data-playtime="中"
+             data-rank="B"
+             data-mc="84"
+             data-core="田忌赛马"
+             data-disadv="">
+            <img src="imgs/045.jpg" alt="巫师之昆特牌：王权的陨落">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="尼尔：机械纪元"
+             data-english="NieR: Automata"
+             data-platform="PC"
+             data-developer="Square Enix"
+             data-year="2017"
+             data-category="开放世界ARPG"
+             data-category-b=""
+             data-tga=""
+             data-playtime="中"
+             data-rank="B"
+             data-mc="89"
+             data-core="机械感末日，人设（2B小姐姐）；三主角 A2 2B 9S =&gt; All to be nice"
+             data-disadv="">
+            <img src="imgs/048.jpg" alt="尼尔：机械纪元">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="微软模拟飞行2024"
+             data-english="Microsoft Flight Simulator 2024"
+             data-platform="PC"
+             data-developer="Asobo Studio"
+             data-year="2024"
+             data-category="赛车"
+             data-category-b="飞行模拟"
+             data-tga=""
+             data-playtime="中"
+             data-rank="B"
+             data-mc="78"
+             data-core="真正的飞行模拟，可以学开飞机；真实全球，但要联网(机场都不预下载)，且bug非常多"
+             data-disadv="">
+            <img src="imgs/050.jpg" alt="微软模拟飞行2024">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="尘埃4"
+             data-english="DiRT 4"
+             data-platform="PC"
+             data-developer="Codemasters"
+             data-year="2017"
+             data-category="赛车"
+             data-category-b=""
+             data-tga=""
+             data-playtime="中"
+             data-rank="B"
+             data-mc="78"
+             data-core="写实拉力赛"
+             data-disadv="">
+            <img src="imgs/053.jpg" alt="尘埃4">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="双人成行"
+             data-english="It Takes Two"
+             data-platform="PC"
+             data-developer="Hazelight Studios"
+             data-year="2021"
+             data-category="双人合作"
+             data-category-b=""
+             data-tga="2021年度游戏"
+             data-playtime="短"
+             data-rank="B"
+             data-mc="89"
+             data-core="同上，评级低单纯因为是旧作"
+             data-disadv="">
+            <img src="imgs/061.jpg" alt="双人成行">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="王国：两位君主"
+             data-english="Kingdom Two Crowns"
+             data-platform="Switch"
+             data-developer="Raw Fury"
+             data-year="2018"
+             data-category="双人合作"
+             data-category-b=""
+             data-tga=""
+             data-playtime="中"
+             data-rank="B"
+             data-mc="82"
+             data-core="横版塔防"
+             data-disadv="">
+            <img src="imgs/063.jpg" alt="王国：两位君主">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="生化危机2重制版"
+             data-english="Resident Evil 2"
+             data-platform="PC"
+             data-developer="CAPCOM"
+             data-year="2019"
+             data-category="动作冒险"
+             data-category-b=""
+             data-tga=""
+             data-playtime="短"
+             data-rank="B"
+             data-mc="89"
+             data-core="第三人称，重制经典警局冒险，里昂 / 克莱尔双线叙事"
+             data-disadv="">
+            <img src="imgs/069.jpg" alt="生化危机2重制版">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="生化危机7"
+             data-english="Resident Evil 7"
+             data-platform="PC"
+             data-developer="CAPCOM"
+             data-year="2017"
+             data-category="动作冒险"
+             data-category-b=""
+             data-tga=""
+             data-playtime="短"
+             data-rank="B"
+             data-mc="84"
+             data-core="第一人称，系列回归生存恐怖本源之作"
+             data-disadv="">
+            <img src="imgs/070.jpg" alt="生化危机7">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="使命召唤21：黑色行动6"
+             data-english="Call of Duty: Black Ops 6"
+             data-platform="PC"
+             data-developer="Activision"
+             data-year="2024"
+             data-category="FPS"
+             data-category-b=""
+             data-tga=""
+             data-playtime="短"
+             data-rank="B"
+             data-mc="82"
+             data-core="只玩单人战役，太久没玩FPS而评分加成（不想用键鼠）
+1990海湾战争，体验丰富（多风格潜行、迷你开放世界、生化危机）"
+             data-disadv="">
+            <img src="imgs/074.jpg" alt="使命召唤21：黑色行动6">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="战神：诸神黄昏"
+             data-english="God of War: Ragnarok"
+             data-platform="PC"
+             data-developer="圣莫尼卡"
+             data-year="2024"
+             data-category="ARPG"
+             data-category-b=""
+             data-tga="2022最佳动作冒险游戏"
+             data-playtime="中"
+             data-rank="B"
+             data-mc="94"
+             data-core="三部曲缩水至两部，节奏崩了，结局拉跨（大战不如前作）"
+             data-disadv="">
+            <img src="imgs/078.jpg" alt="战神：诸神黄昏">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="龙之信条：黑暗觉者"
+             data-english="Dragon&#39;s Dogma: Dark Arisen"
+             data-platform="Switch"
+             data-developer="CAPCOM"
+             data-year="2019"
+             data-category="ARPG"
+             data-category-b=""
+             data-tga=""
+             data-playtime="中"
+             data-rank="B"
+             data-mc="80"
+             data-core="卡普空开放世界动作 RPG"
+             data-disadv="">
+            <img src="imgs/082.jpg" alt="龙之信条：黑暗觉者">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="天外世界"
+             data-english="The Outer Worlds"
+             data-platform="PC"
+             data-developer="Obsidian Entertainment"
+             data-year="2019"
+             data-category="CRPG"
+             data-category-b=""
+             data-tga=""
+             data-playtime="中"
+             data-rank="B"
+             data-mc="84"
+             data-core="太空歌剧，满世界捡垃圾，政治制度太落后了"
+             data-disadv="">
+            <img src="imgs/093.jpg" alt="天外世界">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="辐射4"
+             data-english="Fallout 4"
+             data-platform="PC"
+             data-developer="Bethesda Softworks"
+             data-year="2015"
+             data-category="CRPG"
+             data-category-b=""
+             data-tga=""
+             data-playtime="中"
+             data-rank="B"
+             data-mc="84"
+             data-core="末日废土，满世界捡垃圾"
+             data-disadv="">
+            <img src="imgs/095.jpg" alt="辐射4">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="龙腾世纪3：审判"
+             data-english="Dragon Age 3: Inquisition"
+             data-platform="PC"
+             data-developer="BioWare"
+             data-year="2014"
+             data-category="CRPG"
+             data-category-b=""
+             data-tga="2014年度游戏"
+             data-playtime="中"
+             data-rank="B"
+             data-mc="89"
+             data-core=""
+             data-disadv="">
+            <img src="imgs/096.jpg" alt="龙腾世纪3：审判">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="火焰之纹章：风花雪月"
+             data-english="Fire Emblem: ThreeHouses"
+             data-platform="Switch"
+             data-developer="任天堂"
+             data-year="2019"
+             data-category="策略"
+             data-category-b="战棋"
+             data-tga=""
+             data-playtime="中"
+             data-rank="B"
+             data-mc="89"
+             data-core=""
+             data-disadv="">
+            <img src="imgs/100.jpg" alt="火焰之纹章：风花雪月">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="命运石之门"
+             data-english="Steins;Gate"
+             data-platform="PC"
+             data-developer="5pb."
+             data-year="2009"
+             data-category="互动叙事"
+             data-category-b="视觉小说"
+             data-tga=""
+             data-playtime="中"
+             data-rank="B"
+             data-mc="86"
+             data-core=""
+             data-disadv="">
+            <img src="imgs/103.jpg" alt="命运石之门">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="土豆兄弟"
+             data-english="Brotato"
+             data-platform="PC"
+             data-developer="Blobfish"
+             data-year="2023"
+             data-category="动作"
+             data-category-b="肉鸽"
+             data-tga=""
+             data-playtime="短"
+             data-rank="B"
+             data-mc="83"
+             data-core="刷刷刷、变数较多(角色)、时长还行"
+             data-disadv="">
+            <img src="imgs/105.jpg" alt="土豆兄弟">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="文明5：美丽新世界"
+             data-english="Civilization V: Brave New World"
+             data-platform="PC"
+             data-developer="Firaxis Games"
+             data-year="2013"
+             data-category="策略"
+             data-category-b="回合策略"
+             data-tga=""
+             data-playtime="长"
+             data-rank="B"
+             data-mc="90"
+             data-core="再玩一回合就天亮了"
+             data-disadv="">
+            <img src="imgs/112.jpg" alt="文明5：美丽新世界">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="茧"
+             data-english="COCOON"
+             data-platform="PC"
+             data-developer="Geometric Interactive"
+             data-year="2023"
+             data-category="解密"
+             data-category-b=""
+             data-tga=""
+             data-playtime="短"
+             data-rank="B"
+             data-mc="90"
+             data-core="函数调用与递归；缺少Aha moment"
+             data-disadv="">
+            <img src="imgs/114.jpg" alt="茧">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="画中世界"
+             data-english="Gorogoa"
+             data-platform="iPad"
+             data-developer="Jason Roberts"
+             data-year="2017"
+             data-category="解密"
+             data-category-b=""
+             data-tga=""
+             data-playtime="短"
+             data-rank="B"
+             data-mc="89"
+             data-core="手绘解谜艺术游戏，通过移动拼接四格画作推进叙事"
+             data-disadv="">
+            <img src="imgs/116.jpg" alt="画中世界">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="勇敢的心：世界大战"
+             data-english="Valiant Hearts: The Great War"
+             data-platform="PC"
+             data-developer="Ubisoft Montpellier"
+             data-year="2014"
+             data-category="解密"
+             data-category-b=""
+             data-tga=""
+             data-playtime="短"
+             data-rank="B"
+             data-mc="83"
+             data-core="第一次世界大战，反战"
+             data-disadv="">
+            <img src="imgs/123.jpg" alt="勇敢的心：世界大战">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="古墓丽影：崛起"
+             data-english="Rise of The Tomb Raider"
+             data-platform="PC"
+             data-developer="Crystal Dynamics"
+             data-year="2015"
+             data-category="动作冒险"
+             data-category-b="动作解密探险"
+             data-tga=""
+             data-playtime="中"
+             data-rank="B"
+             data-mc="86"
+             data-core=""
+             data-disadv="">
+            <img src="imgs/127.jpg" alt="古墓丽影：崛起">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="古墓丽影(9)"
+             data-english="Tomb Raider"
+             data-platform="PC"
+             data-developer="Crystal Dynamics"
+             data-year="2013"
+             data-category="动作冒险"
+             data-category-b="动作解密探险"
+             data-tga=""
+             data-playtime="中"
+             data-rank="B"
+             data-mc="86"
+             data-core="系列重启之作，讲述 21 岁劳拉的首次冒险，荒岛求生 + 动作解谜 + 角色成长"
+             data-disadv="">
+            <img src="imgs/128.jpg" alt="古墓丽影(9)">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="瘟疫传说：无罪"
+             data-english="A Plague Tale: Innocence"
+             data-platform="PC"
+             data-developer="Asobo Studio"
+             data-year="2019"
+             data-category="动作冒险"
+             data-category-b="潜行动作冒险"
+             data-tga=""
+             data-playtime="中"
+             data-rank="B"
+             data-mc="81"
+             data-core="中世纪鼠疫背景冒险"
+             data-disadv="">
+            <img src="imgs/130.jpg" alt="瘟疫传说：无罪">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="任天堂明星大乱斗：特别版"
+             data-english="Super Smash Bros. Ultimate"
+             data-platform="Switch"
+             data-developer="任天堂"
+             data-year="2018"
+             data-category="动作"
+             data-category-b="格斗"
+             data-tga=""
+             data-playtime="中"
+             data-rank="B"
+             data-mc="93"
+             data-core=""
+             data-disadv="">
+            <img src="imgs/135.jpg" alt="任天堂明星大乱斗：特别版">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="潜水员戴夫"
+             data-english="DAVE THE DIVER"
+             data-platform="PC"
+             data-developer="MINTROCKET"
+             data-year="2022"
+             data-category="其他"
+             data-category-b="缝合怪"
+             data-tga=""
+             data-playtime="中"
+             data-rank="B"
+             data-mc="91"
+             data-core="赛博打工人模拟器，白天深海叉鱼捞鲜，夜晚寿司店掌厨忙翻
+高密度、缝合怪、小游戏合集"
+             data-disadv="">
+            <img src="imgs/137.jpg" alt="潜水员戴夫">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="人中之龙7：光与暗的去向"
+             data-english="Yakuza：Like a Dragon"
+             data-platform="PC"
+             data-developer="世嘉"
+             data-year="2021"
+             data-category="JRPG"
+             data-category-b=""
+             data-tga=""
+             data-playtime="中"
+             data-rank="B"
+             data-mc="79"
+             data-core="如龙系列首次转型回合制 RPG，主角春日一番出狱后在横滨白手起家"
+             data-disadv="">
+            <img src="imgs/139.jpg" alt="人中之龙7：光与暗的去向">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="人中之龙0：誓约的场所"
+             data-english="Yakuza 0"
+             data-platform="PC"
+             data-developer="世嘉"
+             data-year="2015"
+             data-category="JRPG"
+             data-category-b=""
+             data-tga=""
+             data-playtime="中"
+             data-rank="B"
+             data-mc="83"
+             data-core="系列前传，1988 年日本泡沫经济时期，双主角桐生一马与真岛吾朗在东京神室町与大阪苍天堀展开热血黑道故事"
+             data-disadv="">
+            <img src="imgs/140.jpg" alt="人中之龙0：誓约的场所">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="逆转裁判123：成步堂精选集"
+             data-english="Phoenix Wright: Ace Attorney Trilogy"
+             data-platform="Switch"
+             data-developer="CAPCOM"
+             data-year="2019"
+             data-category="悬疑推理"
+             data-category-b=""
+             data-tga=""
+             data-playtime="中"
+             data-rank="B"
+             data-mc="80"
+             data-core="法庭辩论“异议！”，有打击感的文字推理"
+             data-disadv="">
+            <img src="imgs/143.jpg" alt="逆转裁判123：成步堂精选集">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="意航员2"
+             data-english="Psychonauts 2"
+             data-platform="PC"
+             data-developer="Double Fine"
+             data-year="2021"
+             data-category="动作冒险"
+             data-category-b="3D平台"
+             data-tga=""
+             data-playtime="短"
+             data-rank="B"
+             data-mc="87"
+             data-core=""
+             data-disadv="">
+            <img src="imgs/148.jpg" alt="意航员2">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="怪物男孩与被诅咒的王国"
+             data-english="Monster Boy and the Cursed Kingdom"
+             data-platform="Switch"
+             data-developer="FDG Entertainment"
+             data-year="2019"
+             data-category="动作"
+             data-category-b="银河恶魔城"
+             data-tga=""
+             data-playtime="中"
+             data-rank="B"
+             data-mc="87"
+             data-core=""
+             data-disadv="">
+            <img src="imgs/151.jpg" alt="怪物男孩与被诅咒的王国">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="尤库的小岛速递"
+             data-english="Yoku&#39;s Island Express"
+             data-platform="Switch"
+             data-developer="Team17 Software Limited"
+             data-year="2018"
+             data-category="动作"
+             data-category-b="银河恶魔城"
+             data-tga=""
+             data-playtime="短"
+             data-rank="B"
+             data-mc="81"
+             data-core="Windows自带三维弹球的银河恶魔城改编"
+             data-disadv="">
+            <img src="imgs/152.jpg" alt="尤库的小岛速递">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="小小梦魇"
+             data-english="Little Nightmares"
+             data-platform="PC"
+             data-developer="Tarsier Studios"
+             data-year="2017"
+             data-category="动作冒险"
+             data-category-b="恐怖"
+             data-tga=""
+             data-playtime="短"
+             data-rank="B"
+             data-mc="78"
+             data-core=""
+             data-disadv="">
+            <img src="imgs/156.jpg" alt="小小梦魇">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="看门狗2"
+             data-english="Watch Dogs 2"
+             data-platform="PC"
+             data-developer="Ubisoft"
+             data-year="2016"
+             data-category="开放世界"
+             data-category-b=""
+             data-tga=""
+             data-playtime="中"
+             data-rank="B"
+             data-mc="80"
+             data-core=""
+             data-disadv="">
+            <img src="imgs/165a.jpg" alt="看门狗2">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="刺客信条：叛逆者合集"
+             data-english="Assassin&#39;s Creed: The Rebel Collection"
+             data-platform="Switch"
+             data-developer="Ubisoft"
+             data-year="2019"
+             data-category="动作冒险"
+             data-category-b=""
+             data-tga=""
+             data-playtime="中"
+             data-rank="B"
+             data-mc="78"
+             data-core="只玩了黑旗"
+             data-disadv="">
+            <img src="imgs/171.jpg" alt="刺客信条：叛逆者合集">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="Florence"
+             data-english="Florence"
+             data-platform="iPad"
+             data-developer="Mountains"
+             data-year="2018"
+             data-category="互动叙事"
+             data-category-b=""
+             data-tga=""
+             data-playtime="短"
+             data-rank="B"
+             data-mc="92"
+             data-core="失恋专用"
+             data-disadv="">
+            <img src="imgs/174.jpg" alt="Florence">
+        </div>
+        </div>
+    </div>
+    
+    <div class="rank-section">
+        <div class="rank-label rank-C">C</div>
+        <div class="games-container">
+        <div class="game-item"
+             data-chinese="鬼泣5"
+             data-english="Devil May Cry 5"
+             data-platform="PC"
+             data-developer="CAPCOM"
+             data-year="2019"
+             data-category="动作"
+             data-category-b=""
+             data-tga="2019最佳动作游戏"
+             data-playtime="短"
+             data-rank="C"
+             data-mc="88"
+             data-core="传统硬核ACT(鬼泣、战神、忍龙、猎天使魔女)之一，体会不到连招类动作游戏的乐趣，玩成了割草游戏(超级角色)"
+             data-disadv="">
+            <img src="imgs/002.jpg" alt="鬼泣5">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="帕斯卡契约"
+             data-english="Pascal&#39;s Wager"
+             data-platform="iPad"
+             data-developer="TipsWorks"
+             data-year="2020"
+             data-category="魂系"
+             data-category-b=""
+             data-tga=""
+             data-playtime="短"
+             data-rank="C"
+             data-mc="82"
+             data-core="国产手机魂游"
+             data-disadv="">
+            <img src="imgs/012.jpg" alt="帕斯卡契约">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="仁王"
+             data-english="NIOH"
+             data-platform="PC"
+             data-developer="光荣特库摩"
+             data-year="2017"
+             data-category="魂系"
+             data-category-b=""
+             data-tga=""
+             data-playtime="中"
+             data-rank="C"
+             data-mc="83"
+             data-core="日本“杰洛特”，在日本战国乱世斩妖除魔"
+             data-disadv="">
+            <img src="imgs/013.jpg" alt="仁王">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="英雄传说：闪之轨迹"
+             data-english="The Legend of Heroes: Trails of Cold Steel"
+             data-platform="PC"
+             data-developer="Falcom"
+             data-year="2013"
+             data-category="JRPG"
+             data-category-b=""
+             data-tga=""
+             data-playtime="长"
+             data-rank="C"
+             data-mc="81"
+             data-core="轨迹系列中期帝国篇1，后续还有2、3、4的坑"
+             data-disadv="">
+            <img src="imgs/019.jpg" alt="英雄传说：闪之轨迹">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="圣剑传说"
+             data-english="Visions Of Mana"
+             data-platform="PC"
+             data-developer="Square Enix"
+             data-year="2024"
+             data-category="JRPG"
+             data-category-b=""
+             data-tga=""
+             data-playtime="中"
+             data-rank="C"
+             data-mc="74"
+             data-core=""
+             data-disadv="">
+            <img src="imgs/024.jpg" alt="圣剑传说">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="最终幻想7：重制版"
+             data-english="Final Fantasy VII Remake Intergrade"
+             data-platform="PC"
+             data-developer="Square Enix"
+             data-year="2021"
+             data-category="JRPG"
+             data-category-b=""
+             data-tga="2020最佳角色扮演游戏"
+             data-playtime="中"
+             data-rank="C"
+             data-mc="87"
+             data-core="玩不下去（原版剧情被几倍注水）"
+             data-disadv="">
+            <img src="imgs/026.jpg" alt="最终幻想7：重制版">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="最终幻想12：黄道年代"
+             data-english="Final Fantasy XII: The Zodiac Age"
+             data-platform="Switch"
+             data-developer="Square Enix"
+             data-year="2019"
+             data-category="JRPG"
+             data-category-b=""
+             data-tga=""
+             data-playtime="中"
+             data-rank="C"
+             data-mc="85"
+             data-core="玩了一半，改看视频解说"
+             data-disadv="">
+            <img src="imgs/027.jpg" alt="最终幻想12：黄道年代">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="古剑奇谭三：梦付千秋星垂野"
+             data-english="GuJian 3"
+             data-platform="PC"
+             data-developer="上海烛龙信息科技有限公司"
+             data-year="2018"
+             data-category="JRPG"
+             data-category-b="国产RPG"
+             data-tga=""
+             data-playtime="中"
+             data-rank="C"
+             data-mc="82"
+             data-core="属于JRPG，国风"
+             data-disadv="">
+            <img src="imgs/032.jpg" alt="古剑奇谭三：梦付千秋星垂野">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="赛博朋克2077"
+             data-english="Cyberpunk 2077"
+             data-platform="PC"
+             data-developer="CD Projekt RED"
+             data-year="2020"
+             data-category="开放世界ARPG"
+             data-category-b=""
+             data-tga=""
+             data-playtime="中"
+             data-rank="C"
+             data-mc="91"
+             data-core="科幻大作，早期bug极多，CD Projekt RED衰落之作"
+             data-disadv="">
+            <img src="imgs/042.jpg" alt="赛博朋克2077">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="疯狂的麦克斯"
+             data-english="Mad Max"
+             data-platform="PC"
+             data-developer="Avalanche Studios"
+             data-year="2015"
+             data-category="开放世界ARPG"
+             data-category-b=""
+             data-tga=""
+             data-playtime="中"
+             data-rank="C"
+             data-mc="79"
+             data-core="废土风格模式，电影的衍生作品，电影好看"
+             data-disadv="">
+            <img src="imgs/047.jpg" alt="疯狂的麦克斯">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="情感反诈模拟器"
+             data-english="Revenge On Gold Diggers"
+             data-platform="PC"
+             data-developer="前方工作室"
+             data-year="2025"
+             data-category="互动叙事"
+             data-category-b="互动影游"
+             data-tga=""
+             data-playtime="短"
+             data-rank="C"
+             data-mc="72"
+             data-core="捞女模拟器；音乐一响，反捞白讲；她不一样（白月光）"
+             data-disadv="">
+            <img src="imgs/055.jpg" alt="情感反诈模拟器">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="隐形守护者"
+             data-english="The Invisible Guardian"
+             data-platform="PC"
+             data-developer="New One Studio"
+             data-year="2019"
+             data-category="互动叙事"
+             data-category-b="互动影游"
+             data-tga=""
+             data-playtime="短"
+             data-rank="C"
+             data-mc="80"
+             data-core="PPT讲故事，卧底"
+             data-disadv="">
+            <img src="imgs/056.jpg" alt="隐形守护者">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="428被封锁的涩谷"
+             data-english="428: Shibuya Scramble"
+             data-platform="PSP"
+             data-developer="Chunsoft"
+             data-year="2008"
+             data-category="互动叙事"
+             data-category-b="互动影游"
+             data-tga=""
+             data-playtime="短"
+             data-rank="C"
+             data-mc="90"
+             data-core="PPT讲故事，更偏悬疑推理"
+             data-disadv="">
+            <img src="imgs/058.jpg" alt="428被封锁的涩谷">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="逃出生天"
+             data-english="A Way Out"
+             data-platform="PC"
+             data-developer="Hazelight Studios"
+             data-year="2018"
+             data-category="双人合作"
+             data-category-b=""
+             data-tga=""
+             data-playtime="短"
+             data-rank="C"
+             data-mc="83"
+             data-core="合作越狱，越狱太冗长了"
+             data-disadv="">
+            <img src="imgs/062.jpg" alt="逃出生天">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="控制"
+             data-english="Control"
+             data-platform="PC"
+             data-developer="Remedy Entertainment"
+             data-year="2019"
+             data-category="动作冒险"
+             data-category-b=""
+             data-tga=""
+             data-playtime="短"
+             data-rank="C"
+             data-mc="82"
+             data-core="玩法重复，“董明珠”历险记"
+             data-disadv="">
+            <img src="imgs/072.jpg" alt="控制">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="使命召唤12：黑色行动3"
+             data-english="Call of Duty: Black Ops 3"
+             data-platform="PC"
+             data-developer="Activision"
+             data-year="2015"
+             data-category="FPS"
+             data-category-b=""
+             data-tga=""
+             data-playtime="短"
+             data-rank="C"
+             data-mc="73"
+             data-core=""
+             data-disadv="">
+            <img src="imgs/075.jpg" alt="使命召唤12：黑色行动3">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="使命召唤11：高级战争"
+             data-english="Call of Duty: Advanced Warfare"
+             data-platform="PC"
+             data-developer="Activision"
+             data-year="2014"
+             data-category="FPS"
+             data-category-b=""
+             data-tga=""
+             data-playtime="短"
+             data-rank="C"
+             data-mc="78"
+             data-core=""
+             data-disadv="">
+            <img src="imgs/076.jpg" alt="使命召唤11：高级战争">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="碧蓝幻想：RELINK"
+             data-english="GRANBLUE FANTASY Relink"
+             data-platform="PC"
+             data-developer="Cygames"
+             data-year="2024"
+             data-category="ARPG"
+             data-category-b=""
+             data-tga=""
+             data-playtime="中"
+             data-rank="C"
+             data-mc="80"
+             data-core=""
+             data-disadv="">
+            <img src="imgs/080.jpg" alt="碧蓝幻想：RELINK">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="怪物猎人崛起"
+             data-english="MONSTER HUNTER RISE"
+             data-platform="Switch"
+             data-developer="CAPCOM"
+             data-year="2021"
+             data-category="ARPG"
+             data-category-b=""
+             data-tga=""
+             data-playtime="短"
+             data-rank="C"
+             data-mc="88"
+             data-core="玩不下去，没有朋友可以共斗"
+             data-disadv="">
+            <img src="imgs/081.jpg" alt="怪物猎人崛起">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="极乐迪斯科 最终剪辑版"
+             data-english="Disco Elysium The Final Cut"
+             data-platform="PC"
+             data-developer="ZA/UM"
+             data-year="2019"
+             data-category="CRPG"
+             data-category-b=""
+             data-tga="2019最佳角色扮演游戏"
+             data-playtime="中"
+             data-rank="C"
+             data-mc="91"
+             data-core="无战斗RPG、东欧文学巨著、哲学思考、侦探游戏但是凶手末期才出现(机械降神)"
+             data-disadv="">
+            <img src="imgs/094.jpg" alt="极乐迪斯科 最终剪辑版">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="圣兽之王"
+             data-english="Unicorn Overlord"
+             data-platform="Switch"
+             data-developer="Vanillaware(香草社)"
+             data-year="2024"
+             data-category="策略"
+             data-category-b="战棋"
+             data-tga=""
+             data-playtime="中"
+             data-rank="C"
+             data-mc="87"
+             data-core="因香草社而玩"
+             data-disadv="">
+            <img src="imgs/099.jpg" alt="圣兽之王">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="全面战争：罗马2 皇帝版"
+             data-english="Total War: Rome II - Emperor Edition"
+             data-platform="PC"
+             data-developer="Creative Assembly"
+             data-year="2013"
+             data-category="策略"
+             data-category-b="即时策略"
+             data-tga=""
+             data-playtime="短"
+             data-rank="C"
+             data-mc="81"
+             data-core="喜欢战役而非战略 (战役才能重用兵)"
+             data-disadv="">
+            <img src="imgs/110.jpg" alt="全面战争：罗马2 皇帝版">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="迷你地铁"
+             data-english="Mini Metro"
+             data-platform="iPad"
+             data-developer="Dinosaur Polo Club"
+             data-year="2015"
+             data-category="策略"
+             data-category-b="模拟策略"
+             data-tga=""
+             data-playtime="短"
+             data-rank="C"
+             data-mc="87"
+             data-core=""
+             data-disadv="">
+            <img src="imgs/111.jpg" alt="迷你地铁">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="纪念碑谷2"
+             data-english="Monument Valley 2"
+             data-platform="iPad"
+             data-developer="ustwo games"
+             data-year="2017"
+             data-category="解密"
+             data-category-b=""
+             data-tga=""
+             data-playtime="短"
+             data-rank="C"
+             data-mc="90"
+             data-core="视觉错觉解谜"
+             data-disadv="">
+            <img src="imgs/117.jpg" alt="纪念碑谷2">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="纪念碑谷"
+             data-english="Monument Valley"
+             data-platform="iPad"
+             data-developer="ustwo games"
+             data-year="2014"
+             data-category="解密"
+             data-category-b=""
+             data-tga=""
+             data-playtime="短"
+             data-rank="C"
+             data-mc="94"
+             data-core="视觉错觉解谜"
+             data-disadv="">
+            <img src="imgs/118.jpg" alt="纪念碑谷">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="古墓丽影：暗影"
+             data-english="Shadow of the Tomb Raider"
+             data-platform="PC"
+             data-developer="Eidos Montreal"
+             data-year="2018"
+             data-category="动作冒险"
+             data-category-b="动作解密探险"
+             data-tga=""
+             data-playtime="中"
+             data-rank="C"
+             data-mc="77"
+             data-core="重启三部曲终章，劳拉在秘鲁丛林阻止世界末日"
+             data-disadv="">
+            <img src="imgs/126.jpg" alt="古墓丽影：暗影">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="瘟疫传说：安魂曲"
+             data-english="A Plague Tale: Requiem"
+             data-platform="PC"
+             data-developer="Asobo Studio"
+             data-year="2022"
+             data-category="动作冒险"
+             data-category-b="潜行动作冒险"
+             data-tga=""
+             data-playtime="中"
+             data-rank="C"
+             data-mc="81"
+             data-core="糟糕的潜行体验 (大场景+低容错)"
+             data-disadv="">
+            <img src="imgs/129.jpg" alt="瘟疫传说：安魂曲">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="耻辱：界外魔之死"
+             data-english="Dishonored: Death of the Outsider"
+             data-platform="PC"
+             data-developer="Arkane Studios"
+             data-year="2017"
+             data-category="动作冒险"
+             data-category-b="潜行动作冒险"
+             data-tga=""
+             data-playtime="短"
+             data-rank="C"
+             data-mc="84"
+             data-core="只能算2的DLC"
+             data-disadv="">
+            <img src="imgs/131.jpg" alt="耻辱：界外魔之死">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="师父"
+             data-english="SIFU"
+             data-platform="PC"
+             data-developer="Sloclap"
+             data-year="2022"
+             data-category="动作"
+             data-category-b="格斗"
+             data-tga=""
+             data-playtime="短"
+             data-rank="C"
+             data-mc="78"
+             data-core="外国人做的中国功夫游戏，越打越老"
+             data-disadv="">
+            <img src="imgs/134.jpg" alt="师父">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="古镜记"
+             data-english="The Rewinder"
+             data-platform="iPad"
+             data-developer="胖布丁游戏"
+             data-year="2021"
+             data-category="悬疑推理"
+             data-category-b=""
+             data-tga=""
+             data-playtime="短"
+             data-rank="C"
+             data-mc="-"
+             data-core="古代探案“金鸟奇案”，比较独特，评级不高主要是系统坑多"
+             data-disadv="">
+            <img src="imgs/142.jpg" alt="古镜记">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="WILL：美好世界"
+             data-english="WILL: A Wonderful World"
+             data-platform="PC"
+             data-developer="任意门游戏"
+             data-year="2017"
+             data-category="悬疑推理"
+             data-category-b=""
+             data-tga=""
+             data-playtime="短"
+             data-rank="C"
+             data-mc="73"
+             data-core="调整语言顺序，改变结果"
+             data-disadv="">
+            <img src="imgs/144.jpg" alt="WILL：美好世界">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="暗影火炬城"
+             data-english="F.I.S.T.: Forged In Shadow Torch"
+             data-platform="PC"
+             data-developer="上海钛核网络"
+             data-year="2021"
+             data-category="动作"
+             data-category-b="银河恶魔城"
+             data-tga=""
+             data-playtime="短"
+             data-rank="C"
+             data-mc="81"
+             data-core="上海滩机械朋克风银河恶魔城 配音+ 画面+ 地图- 探索-"
+             data-disadv="">
+            <img src="imgs/150.jpg" alt="暗影火炬城">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="小小梦魇2"
+             data-english="Little Nightmares II"
+             data-platform="PC"
+             data-developer="Tarsier Studios"
+             data-year="2021"
+             data-category="动作冒险"
+             data-category-b="恐怖"
+             data-tga=""
+             data-playtime="短"
+             data-rank="C"
+             data-mc="82"
+             data-core="优秀的氛围营造，极其糟糕的手感(迷一样的Z轴 垃圾判定)"
+             data-disadv="">
+            <img src="imgs/155.jpg" alt="小小梦魇2">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="热血无赖"
+             data-english="Sleeping Dogs"
+             data-platform="PC"
+             data-developer="United Front/Square Enix"
+             data-year="2012"
+             data-category="开放世界"
+             data-category-b=""
+             data-tga=""
+             data-playtime="中"
+             data-rank="C"
+             data-mc="83"
+             data-core="被称为 “香港 GTA” 的开放世界经典，扮演卧底警察沈威潜入三合会"
+             data-disadv="">
+            <img src="imgs/164.jpg" alt="热血无赖">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="刺客信条：大革命"
+             data-english="Assassin&#39;s Creed: Unity"
+             data-platform="PC"
+             data-developer="Ubisoft"
+             data-year="2014"
+             data-category="动作冒险"
+             data-category-b=""
+             data-tga=""
+             data-playtime="中"
+             data-rank="C"
+             data-mc="72"
+             data-core=""
+             data-disadv="">
+            <img src="imgs/172.jpg" alt="刺客信条：大革命">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="奇异人生2"
+             data-english="Life Is Strange 2"
+             data-platform="PC"
+             data-developer="Dontnod Entertainment"
+             data-year="2018"
+             data-category="互动叙事"
+             data-category-b=""
+             data-tga=""
+             data-playtime="短"
+             data-rank="C"
+             data-mc="82"
+             data-core="兄弟情谊 + 种族歧视 + 成长主题"
+             data-disadv="">
+            <img src="imgs/177.jpg" alt="奇异人生2">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="勿忘我"
+             data-english="Remember Me"
+             data-platform="PC"
+             data-developer="Dontnod Entertainment"
+             data-year="2013"
+             data-category="动作冒险"
+             data-category-b=""
+             data-tga=""
+             data-playtime="短"
+             data-rank="C"
+             data-mc="77"
+             data-core=""
+             data-disadv="">
+            <img src="imgs/178.jpg" alt="勿忘我">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="坎巴拉太空计划"
+             data-english="Kerbal Space Program"
+             data-platform="PC"
+             data-developer="Squad"
+             data-year="2011"
+             data-category="其他"
+             data-category-b="沙盒"
+             data-tga=""
+             data-playtime="中"
+             data-rank="C"
+             data-mc="89"
+             data-core="造火箭，只玩到了绕地卫星"
+             data-disadv="">
+            <img src="imgs/181.jpg" alt="坎巴拉太空计划">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="星界边境"
+             data-english="Starbound"
+             data-platform="PC"
+             data-developer="Chucklefish"
+             data-year="2016"
+             data-category="其他"
+             data-category-b="2D-Minecraft"
+             data-tga=""
+             data-playtime="中"
+             data-rank="C"
+             data-mc="81"
+             data-core="2D 太空版本的 Minecraft"
+             data-disadv="">
+            <img src="imgs/186.jpg" alt="星界边境">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="这是我的战争"
+             data-english="This War of Mine"
+             data-platform="PC"
+             data-developer="11 Bit Studios"
+             data-year="2014"
+             data-category="策略"
+             data-category-b="生存"
+             data-tga=""
+             data-playtime="短"
+             data-rank="C"
+             data-mc="83"
+             data-core="从平民视角体验战争残酷，管理避难所资源、夜晚外出搜刮物资，道德选择影响角色精神状态"
+             data-disadv="">
+            <img src="imgs/189.jpg" alt="这是我的战争">
+        </div>
+        </div>
+    </div>
+    
+    <div class="rank-section">
+        <div class="rank-label rank-D">D</div>
+        <div class="games-container">
+        <div class="game-item"
+             data-chinese="女神异闻录5 乱战：魅影攻手"
+             data-english="Persona 5 Scramble: The Phantom Strikers"
+             data-platform="PC"
+             data-developer="P-Studio"
+             data-year="2021"
+             data-category="JRPG"
+             data-category-b="无双"
+             data-tga=""
+             data-playtime="中"
+             data-rank="D"
+             data-mc="79"
+             data-core="骗钱的衍生作品"
+             data-disadv="">
+            <img src="imgs/017.jpg" alt="女神异闻录5 乱战：魅影攻手">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="光之子"
+             data-english="Child Of Light"
+             data-platform="Switch"
+             data-developer="Ubisoft"
+             data-year="2014"
+             data-category="JRPG"
+             data-category-b=""
+             data-tga=""
+             data-playtime="中"
+             data-rank="D"
+             data-mc="84"
+             data-core="育碧水墨风 JRPG"
+             data-disadv="">
+            <img src="imgs/023.jpg" alt="光之子">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="仙剑奇侠传六"
+             data-english="Chinese Paladin 6"
+             data-platform="PC"
+             data-developer="软星科技"
+             data-year="2015"
+             data-category="JRPG"
+             data-category-b="国产RPG"
+             data-tga=""
+             data-playtime="中"
+             data-rank="D"
+             data-mc="-"
+             data-core="属于JRPG，国风（衰落的系列）"
+             data-disadv="">
+            <img src="imgs/033.jpg" alt="仙剑奇侠传六">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="侠客风云传前传"
+             data-english="Tale of Wuxia: The Pre-Sequel"
+             data-platform="PC"
+             data-developer="河洛工作室"
+             data-year="2016"
+             data-category="CRPG"
+             data-category-b="国产RPG"
+             data-tga=""
+             data-playtime="中"
+             data-rank="D"
+             data-mc="-"
+             data-core="狗尾续貂"
+             data-disadv="">
+            <img src="imgs/034.jpg" alt="侠客风云传前传">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="原神"
+             data-english="Genshin Impact"
+             data-platform="iPad"
+             data-developer="米哈游"
+             data-year="2020"
+             data-category="开放世界ARPG"
+             data-category-b=""
+             data-tga=""
+             data-playtime="长"
+             data-rank="D"
+             data-mc="84"
+             data-core="太肝了（犹如上班，每天都要推丘丘人的基地）、抽角色、开放世界越来越无聊"
+             data-disadv="">
+            <img src="imgs/046.jpg" alt="原神">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="最后生还者2"
+             data-english="The Last of Us Part II"
+             data-platform="PC"
+             data-developer="顽皮狗"
+             data-year="2025"
+             data-category="动作冒险"
+             data-category-b=""
+             data-tga="2020年度游戏"
+             data-playtime="中"
+             data-rank="D"
+             data-mc="93"
+             data-core="圣母复仇：第一次见,虐杀我爹；第二次见,杀我好友；第三次见,我选择原谅"
+             data-disadv="">
+            <img src="imgs/066.jpg" alt="最后生还者2">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="宝可梦：盾"
+             data-english="Pokemon Shield"
+             data-platform="Switch"
+             data-developer="GAME FREAK"
+             data-year="2019"
+             data-category="JRPG"
+             data-category-b="宝可梦"
+             data-tga=""
+             data-playtime="中"
+             data-rank="D"
+             data-mc="81"
+             data-core="体会不到宝可梦系列的乐趣，入坑即弃"
+             data-disadv="">
+            <img src="imgs/168.jpg" alt="宝可梦：盾">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="奇异人生：风暴前夕"
+             data-english="Life is Strange Before the Storm"
+             data-platform="PC"
+             data-developer="Dontnod Entertainment"
+             data-year="2017"
+             data-category="互动叙事"
+             data-category-b=""
+             data-tga=""
+             data-playtime="短"
+             data-rank="D"
+             data-mc="78"
+             data-core="完全不想看两个女同，一点儿也不奇异的人生故事"
+             data-disadv="">
+            <img src="imgs/176.jpg" alt="奇异人生：风暴前夕">
+        </div>
+        
+        <div class="game-item"
+             data-chinese="看火人"
+             data-english="Firewatch"
+             data-platform="PC"
+             data-developer="Campo Santo"
+             data-year="2016"
+             data-category="互动叙事"
+             data-category-b="步行模拟"
+             data-tga=""
+             data-playtime="短"
+             data-rank="D"
+             data-mc="81"
+             data-core="护林人，互动叙事做成了步行模拟"
+             data-disadv="">
+            <img src="imgs/184.jpg" alt="看火人">
+        </div>
+        </div>
+    </div>
+    
+    </div>
+
+    <div class="modal" id="modal">
+        <span class="close-btn">&times;</span>
+        <div class="modal-content">
+            <div class="modal-img"><img id="modal-img" src="" alt=""></div>
+            <div class="modal-info">
+                <h2 id="modal-chinese"></h2>
+                <!-- 所有行结构完全统一，仅TGA成就行多一个id用于控制显示 -->
+                <div class="info-row"><span class="info-label">英文名：</span><span class="info-content" id="modal-english"></span></div>
+                <div class="info-row"><span class="info-label">平台：</span><span class="info-content" id="modal-platform"></span></div>
+                <div class="info-row"><span class="info-label">开发商/发行商：</span><span class="info-content" id="modal-dev"></span></div>
+                <div class="info-row"><span class="info-label">发售年：</span><span class="info-content" id="modal-year"></span></div>
+                <div class="info-row"><span class="info-label">分类：</span><span class="info-content" id="modal-category"></span></div>
+                <!-- TGA成就行：结构与其他行完全一致，仅添加id用于条件显示，无额外差异 -->
+                <div class="info-row" id="modal-tga">
+                    <span class="info-label">TGA成就：</span>
+                    <span class="info-content" id="modal-tga-content"></span>
+                </div>
+                <div class="info-row"><span class="info-label">游玩时长：</span><span class="info-content" id="modal-playtime"></span></div>
+                <div class="info-row"><span class="info-label">评级：</span><span class="info-content" id="modal-rank"></span></div>
+                <div class="info-row"><span class="info-label">MC评分：</span><span class="info-content" id="modal-mc"></span></div>
+                <div class="info-row">
+                    <span class="info-label">核心体验：</span>
+                    <span class="core-experience" id="modal-core"></span>
+                </div>
+                <div class="info-row" id="modal-disadv">
+                    <span class="info-label">显著缺点：</span>
+                    <span class="info-content" id="modal-disadv-content"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const filters = document.querySelectorAll('.filter-btn');
+        const games = document.querySelectorAll('.game-item');
+        filters.forEach(btn => {
+            btn.onclick = () => {
+                filters.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const cat = btn.dataset.category;
+                games.forEach(g => g.style.display = (cat === '全部' || g.dataset.category === cat) ? 'flex' : 'none');
+            };
+        });
+
+        const modal = document.getElementById('modal');
+        const closeBtn = document.querySelector('.close-btn');
+        const modalEls = {
+            img: document.getElementById('modal-img'),
+            chinese: document.getElementById('modal-chinese'),
+            english: document.getElementById('modal-english'),
+            platform: document.getElementById('modal-platform'),
+            dev: document.getElementById('modal-dev'),
+            year: document.getElementById('modal-year'),
+            category: document.getElementById('modal-category'),
+            tga: document.getElementById('modal-tga'),
+            tgaContent: document.getElementById('modal-tga-content'),
+            playtime: document.getElementById('modal-playtime'),
+            rank: document.getElementById('modal-rank'),
+            mc: document.getElementById('modal-mc'),
+            core: document.getElementById('modal-core'),
+            disadv: document.getElementById('modal-disadv'),
+            disadvContent: document.getElementById('modal-disadv-content')
+        };
+
+        games.forEach(game => {
+            game.onclick = () => {
+                modalEls.img.src = game.querySelector('img').src;
+                modalEls.chinese.textContent = (game.dataset.chinese || '').trim();
+                modalEls.english.textContent = (game.dataset.english || '').trim() || '无';
+                modalEls.platform.textContent = (game.dataset.platform || '').trim() || '无';
+                modalEls.dev.textContent = (game.dataset.developer || '').trim() || '无';
+                modalEls.year.textContent = (game.dataset.year || '').trim() || '无';
+                
+                const mainCategory = (game.dataset.category || '').trim();
+                const categoryB = (game.dataset.categoryB || '').trim();   
+                let categoryDisplayText = mainCategory || '无';
+                if (categoryB) {
+                    categoryDisplayText = `${categoryDisplayText} （真实分类：${categoryB}）`;
+                }
+                modalEls.category.textContent = categoryDisplayText;
+                
+                // TGA成就：条件显示逻辑不变，仅控制行的隐藏/显示，不影响排版
+                const tgaValue = (game.dataset.tga || '').trim();
+                if (tgaValue) {
+                    modalEls.tga.style.display = 'flex'; // 显示时用flex，与.info-row布局一致
+                    modalEls.tgaContent.textContent = tgaValue;
+                } else {
+                    modalEls.tga.style.display = 'none'; // 隐藏时不占用布局空间
+                    modalEls.tgaContent.textContent = '';
+                }
+                
+                modalEls.playtime.textContent = (game.dataset.playtime || '').trim() || '无';
+                modalEls.rank.textContent = (game.dataset.rank || '').trim() || '';
+                modalEls.mc.textContent = (game.dataset.mc || '').trim() || '无';
+                modalEls.core.textContent = (game.dataset.core || '').trim() || '（待撰写）';
+                
+                const disadvValue = (game.dataset.disadv || '').trim();
+                if (disadvValue) {
+                    modalEls.disadv.style.display = 'flex';
+                    modalEls.disadvContent.textContent = disadvValue;
+                } else {
+                    modalEls.disadv.style.display = 'none';
+                    modalEls.disadvContent.textContent = '';
+                }
+
+                modal.style.display = 'flex';
+            };
+        });
+
+        closeBtn.onclick = () => modal.style.display = 'none';
+        window.onclick = e => { if (e.target === modal) modal.style.display = 'none'; };
+    </script>
+</body>
+</html>
