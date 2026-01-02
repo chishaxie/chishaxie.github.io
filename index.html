@@ -3,29 +3,28 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- 关键：移动端视口适配 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 第一处修改：title标签文本 -->
     <title>Game rank of chishaxie 2014 ~ 2025 (ing)</title>
     <style>
         * {margin:0; padding:0; box-sizing:border-box; font-family:Arial,sans-serif;}
         body {background:#1a1a1a; color:#fff; display:flex; flex-direction:column; align-items:center;}
         
-        /* 核心修改1：页面宽度自适应，避免移动端超出屏幕 */
         .page {
-            max-width: 1440px; /* 大屏幕保持原宽度 */
-            width: 100%;       /* 移动端自适应屏幕宽度 */
-            padding: 20px 10px;/* 移动端左右padding缩小 */
+            max-width: 1440px;
+            width: 100%;
+            padding: 20px 10px;
         }
         
-        h1 {text-align:center; margin-bottom:20px; color:#f0f0f0; font-size:24px;} /* 标题适配移动端 */
+        h1 {text-align:center; margin-bottom:20px; color:#f0f0f0; font-size:24px;}
         .filter {margin-bottom:20px; display:flex; gap:10px; flex-wrap:wrap;}
         .filter-btn {padding:8px 16px; background:#333; color:#fff; border:none; border-radius:4px; cursor:pointer; transition:0.3s;}
         .filter-btn.active, .filter-btn:hover {background:#555;}
         
         .rank-section {display:flex; margin-bottom:20px;}
-        /* 核心修改2：评级标签最小宽度，保证文字显示 */
         .rank-label {
-            min-width: 60px;   /* 移动端至少显示60px，保证S/S-显示 */
-            width: 80px;       /* 大屏幕宽度 */
+            min-width: 60px;
+            width: 80px;
             display:flex;
             justify-content:center;
             align-items:center;
@@ -41,9 +40,8 @@
         .rank-D {background:#9c27b0;}
         
         .games-container {flex:1; display:flex; flex-wrap:wrap; gap:10px; padding:10px; background:#2d2d2d; border-radius:0 8px 8px 0;}
-        /* 核心修改3：游戏项宽度自适应，大屏幕9个/行，移动端3个/行 */
         .game-item {
-            width: calc((100% - 80px) / 9); /* 大屏幕：9个/行 */
+            width: calc((100% - 80px) / 9);
             aspect-ratio: 1/1.4;
             display:flex;
             justify-content:center;
@@ -57,33 +55,55 @@
         .game-item:hover {transform:scale(1.05);}
         .game-item img {max-width:100%; max-height:100%; object-fit:contain;}
         
-        /* 弹窗样式 */
-        .modal {display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:1000; justify-content:center; align-items:center;}
-        /* 核心修改4：弹窗适配移动端，最大宽度95% */
+        /* PC端弹窗：居中显示 */
+        .modal {
+            display:none; 
+            position:fixed; 
+            top:0; 
+            left:0; 
+            width:100%; 
+            height:100%; 
+            background:rgba(0,0,0,0.8); 
+            z-index:1000; 
+            justify-content:center; 
+            align-items:center; 
+            overflow-y: auto;
+        }
         .modal-content {
-            max-width: 1400px; /* 大屏幕宽度 */
-            width: 95%;        /* 移动端占屏幕95% */
+            max-width: 1440px;
+            width: 95%;
             background:#2d2d2d;
             border-radius:8px;
             display:flex;
             padding:30px;
             gap:30px;
+            margin: 20px auto;
         }
-        .modal-img {flex:1; display:flex; justify-content:center; align-items:center;}
+        .modal-img {
+            flex:1; 
+            display:flex; 
+            justify-content:center; 
+            align-items:center;
+            max-height: 600px;
+            width: 100%;
+        }
         .modal-img img {
             max-width:100%;
-            max-height:600px;
+            max-height: 100%;
+            object-fit: contain;
             border-radius:4px;
         }
         .modal-info {
             flex:2;
             font-size:22px;
             line-height:1.8;
+            width: 100%;
         }
         .modal-info h2 {
             margin-bottom:20px;
             color:#ff6b6b;
             font-size:32px;
+            line-height:1.2;
         }
         .info-row {
             margin-bottom:15px;
@@ -107,52 +127,94 @@
         }
         .close-btn {
             position:absolute;
-            top:30px; right:40px;
+            top:30px; right:30px;
             font-size:40px;
             color:#fff;
             cursor:pointer;
             transition:color 0.3s;
+            z-index: 1001;
         }
         .close-btn:hover {color:#ff6b6b;}
 
-        /* -------------------------- 移动端响应式适配（关键） -------------------------- */
+        /* -------------------------- 移动端弹窗：上下固定分区（核心布局） -------------------------- */
         @media (max-width: 768px) {
-            /* 移动端：游戏项一行3个 */
             .game-item {
-                width: calc((100% - 20px) / 3); /* 3个/行，2个gap（10px*2=20px） */
+                width: calc((100% - 20px) / 3);
             }
-            /* 移动端：评级标签字体缩小，保证显示 */
             .rank-label {
                 font-size: 20px;
                 min-width: 50px;
             }
-            /* 移动端：弹窗改成上下布局（图片在上，信息在下），避免横向拥挤 */
+
+            .modal {
+                align-items: center; /* 弹窗整体垂直居中 */
+                padding: 10px 0;
+            }
+
+            /* 弹窗内容：固定高度，上下分区布局（核心） */
             .modal-content {
-                flex-direction: column;
-                gap: 20px;
-                padding: 20px;
+                flex-direction: column !important; /* 强制上下布局 */
+                gap: 15px !important; /* 上下区小间距，不拥挤 */
+                padding: 20px !important;
+                width: 95% !important;
+                height: 90vh !important; /* 固定弹窗高度为屏幕90% */
+                max-height: unset !important; /* 取消之前的最大高度限制 */
+                overflow: hidden !important; /* 隐藏容器溢出，内部分区滚动 */
+                margin: 0 auto !important;
             }
-            /* 移动端：弹窗字体缩小，更适配小屏幕 */
+
+            /* 上半区：图片区（固定40%高度，完整显示缩小版图片） */
+            .modal-img {
+                width: 100% !important;
+                height: 40% !important; /* 固定为弹窗的40%高度（上半区） */
+                max-height: unset !important; /* 取消最大高度限制 */
+                display: flex !important;
+                justify-content: center !important;
+                align-items: center !important;
+                overflow: visible !important;
+            }
+
+            /* 上半区图片：完整缩小，无裁切 */
+            .modal-img img {
+                width: auto !important;
+                height: auto !important;
+                max-width: 100% !important; /* 不超过图片区宽度 */
+                max-height: 100% !important; /* 不超过图片区高度（实现缩小效果） */
+                object-fit: contain !important; /* 强制完整显示，无裁切 */
+                object-position: center center !important; /* 图片居中 */
+                border-radius: 4px !important;
+            }
+
+            /* 下半区：文字区（填充剩余高度，独立滚动） */
             .modal-info {
-                font-size: 18px;
-                line-height: 1.6;
+                width: 100% !important;
+                height: 60% !important; /* 固定为弹窗的60%高度（下半区） */
+                max-height: unset !important; /* 取消最大高度限制 */
+                font-size: 18px !important;
+                line-height: 1.6 !important;
+                overflow-y: auto !important; /* 文字超出时独立滚动，不影响图片区 */
+                padding-right: 5px !important; /* 滚动条留边 */
+                display: block !important;
             }
+
             .modal-info h2 {
-                font-size: 24px;
+                font-size: 24px !important;
+                margin-bottom: 15px !important;
             }
             .info-label {
-                width: 120px; /* 移动端标题宽度缩小 */
+                width: 120px !important;
             }
             .close-btn {
-                top: 20px;
-                right: 20px;
-                font-size: 32px;
+                top: 10px !important;
+                right: 10px !important;
+                font-size: 32px !important;
             }
         }
     </style>
 </head>
 <body>
     <div class="page">
+        <!-- 第二处修改：h1标签文本 -->
         <h1>Game rank of chishaxie 2014 ~ 2025 (ing)</h1>
         <div class="filter">
 <button class="filter-btn active" data-category="全部">全部</button><button class="filter-btn " data-category="动作冒险">动作冒险</button><button class="filter-btn " data-category="动作">动作</button><button class="filter-btn " data-category="双人合作">双人合作</button><button class="filter-btn " data-category="魂系">魂系</button><button class="filter-btn " data-category="ARPG">ARPG</button><button class="filter-btn " data-category="JRPG">JRPG</button><button class="filter-btn " data-category="CRPG">CRPG</button><button class="filter-btn " data-category="开放世界ARPG">开放世界ARPG</button><button class="filter-btn " data-category="开放世界">开放世界</button><button class="filter-btn " data-category="互动叙事">互动叙事</button><button class="filter-btn " data-category="解密">解密</button><button class="filter-btn " data-category="策略">策略</button><button class="filter-btn " data-category="悬疑推理">悬疑推理</button><button class="filter-btn " data-category="赛车">赛车</button><button class="filter-btn " data-category="FPS">FPS</button><button class="filter-btn " data-category="其他">其他</button>
